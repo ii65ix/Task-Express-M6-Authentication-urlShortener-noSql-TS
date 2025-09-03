@@ -5,7 +5,6 @@ import errorHandler from "./middlewares/ErrorHandler";
 import morgan from "morgan";
 import usersRouter from "./apis/users/users.routes";
 import urlsRouter from "./apis/urls/urls.routes";
-
 const app = express();
 const PORT = 8000;
 
