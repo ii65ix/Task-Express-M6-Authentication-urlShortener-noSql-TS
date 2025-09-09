@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 const URLSchema = new mongoose.Schema({
-    urlCode: String,
-    longUrl: String,
-    shortUrl: String,
+    urlCode: {type:String},
+    longUrl: {type:String},
+    shortUrl: {type:String},
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

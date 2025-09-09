@@ -10,7 +10,8 @@ const UserSchema = new mongoose.Schema({
     },
   ],
 });
-
+export type UserAttrs = mongoose.InferSchemaType<typeof UserSchema>
+export type UserDoc = mongoose.HydratedDocument<UserAttrs>
 const User = mongoose.model("User", UserSchema);
 
 export default User;

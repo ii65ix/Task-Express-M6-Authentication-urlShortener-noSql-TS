@@ -17,11 +17,14 @@ export const signup = async (
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({ username, password: hashedPassword });
     // Generate token
-    const token = jwt.sign(
-      { userId: user._id, username: user.username },
-      "your_jwt_secret",
-      { expiresIn: "1h" }
-    );
+    const payload =
+      { userId: user._id, username: user.username };
+    
+      const jwtSecert = process.env.JWT_SECERT||"something";
+      const jwtExp = process.env.JWT_EXP||"1h";
+      const token = jwt.sign(payload,jwtSecert, {expiresIn:jwtExp} as jwt.SignOptions)
+
+
 
     res.status(201).json({ token });
   } catch (err) {
